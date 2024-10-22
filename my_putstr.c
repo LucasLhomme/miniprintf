@@ -5,7 +5,7 @@
 ** putstr
 */
 
-int my_putchar(char c);
+#include "my.h"
 
 int my_putstr(char const *str)
 {
@@ -17,4 +17,3 @@ int my_putstr(char const *str)
     }
     return 0;
 }
-

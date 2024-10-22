@@ -4,38 +4,24 @@
 ** File description:
 ** Premier projet Epitech
 */
-
 #include <stdio.h>
 #include <stdarg.h>
-
-int my_put_nbr(int nb);
-void my_putchar(char c);
-int my_putstr(char const *str);
-
+#include "my.h"
 
 void cheker(char flag, va_list ap)
 {
-    int d;
-	int i;
-    char c;
-    char *s;
-
     switch (flag) {
     case 's':
-        s = va_arg(ap, char*);
-        my_putstr(s);
+        my_putstr(va_arg(ap, char *));
         break;
     case 'd':
-        d = va_arg(ap, int);
-        my_put_nbr(d);
+        my_put_nbr(va_arg(ap, int));
         break;
-	case 'i':
-    	i = va_arg(ap, int);
-        my_put_nbr(i);
+    case 'i':
+        my_put_nbr(va_arg(ap, int));
         break;
     case 'c':
-        c = (char) va_arg(ap, int);
-        my_putchar(c);
+        my_putchar((char) va_arg(ap, int));
         break;
     default:
         my_putchar('%');
@@ -45,12 +31,11 @@ void cheker(char flag, va_list ap)
 
 int mini_printf(const char *format, ...)
 {
-    va_list ap;
-    va_start(ap, format);
     int i = 0;
+    va_list ap;
 
-    while (format[i])
-    {
+    va_start(ap, format);
+    while (format[i]) {
         if (format[i] == '%') {
             i++;
             cheker(format[i], ap);

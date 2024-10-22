@@ -4,8 +4,7 @@
 ** File description:
 ** mon my put nbr
 */
-
-void my_putchar(char c);
+#include "my.h"
 
 int my_put_nbr(int nb)
 {
@@ -14,7 +13,7 @@ int my_put_nbr(int nb)
 
     if (nb < 0) {
         my_putchar('-');
-        if (nb <- 2147483647 + 1) {
+        if (nb < - 2147483647 + 1) {
             my_put_nbr(- beginning);
             return my_put_nbr(- end);
         }
